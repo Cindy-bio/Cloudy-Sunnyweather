@@ -1,0 +1,44 @@
+body {
+  background-color: aquamarine;
+}
+.place {
+  display: block;
+  padding: 10px;
+  margin: 0px auto;
+  max-width: 60%;
+  border: 10px thin darkgreen;
+  border-radius: 15px;
+  background-color: rgb(131, 240, 255);
+  font-family: "Exo", sans-serif;
+}
+form {
+  border-radius: 850px;
+  display: flex;
+  justify-content: center;
+}
+.look {
+  border-radius: 890px;
+  color: orangered;
+  background-color: purple;
+}
+.look:hover {
+  color: purple;
+  background-color: orangered;
+}
+h1 {
+  color: rgb(131, 0, 253);
+}
+.value {
+  color: rgb(255, 0, 187);
+  font-size: large;
+  font-family: "Sora", sans-serif;
+}
+
+#sunny {
+  color: pink;
+  font-size: 50px;
+  font-weight: 35px;
+  display: flex;
+  justify-content: end;
+  top: 10px;
+}
