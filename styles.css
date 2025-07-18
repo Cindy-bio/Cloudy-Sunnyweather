@@ -2,46 +2,80 @@ body {
   background-color: rgb(96, 158, 137);
 }
 .place {
-  display: block;
-  padding: 10px;
-  margin: 0px auto;
-  max-width: 60%;
-  border: 10px thin darkgreen;
+  position: relative;
+  padding: 30px;
+  margin: 45px auto;
+  max-width: 30%;
   border-radius: 15px;
   background-color: rgb(87, 135, 142);
   font-family: "Exo", sans-serif;
 }
-form {
-  border-radius: 850px;
+.hot{
+  display:flex;
+  justify-content: center;
+  margin: 15px;
+}
+#location{
+  border-radius: 100px;
   display: flex;
   justify-content: center;
 }
+#find-input{
+  border-radius: 20px;
+}
 .look {
-  border-radius: 890px;
-  color: orangered;
+  padding: 15px;
+  border-radius: 20px;
+  color: rgb(255, 68, 0);
   background-color: purple;
 }
 .look:hover {
-  color: purple;
-  background-color: orangered;
+  color: rgb(252, 70, 4);
+  background-color: rgb(255, 218, 255);
 }
 .fluffy-weather{
   display: flex;
-  display: flex;
-  justify-content: end;
-  top: 0px;
+  justify-content: space-between;
 }
 h1 {
   color: rgb(102, 28, 171);
+  font-size: 65px;
+  margin: 10px;
 }
 .value {
   color: rgb(255, 0, 187);
   font-size: large;
   font-family: "Sora", sans-serif;
 }
-
-#sunny {
-  color: pink;
-  font-size: 50px;
-  font-weight: 35px;
+#sunny{
+  color: rgb(102, 28, 171);
+  display: flex;
+  margin: 10px;
+}
+.sunnyShow{
+  font-size: 44px;
+  margin-top: 68px;
+}
+.sunnyDigits{
+  color: rgb(102, 28, 171);
+  font-family: "Sora", sans-serif;
+  line-height: 200px;
+  font-size: 100px;
+  font-weight: bold;
+}
+.sunnyUnit{
+  margin-top: 35px;
+  font-size: 44px;
+}
+.work-profile{
+  text-align: center;
+  font-size: 12px;
+}
+a{
+  color: rgb(255, 0, 187);
+  text-decoration: none;
+}
+a:visited{
+  color: rgb(245, 184, 229);  
+  transition-duration: 1min;
 }
