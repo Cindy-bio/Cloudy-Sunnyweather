@@ -25,6 +25,12 @@ form {
   color: purple;
   background-color: orangered;
 }
+.fluffy-weather{
+  display: flex;
+  display: flex;
+  justify-content: end;
+  top: 0px;
+}
 h1 {
   color: rgb(131, 0, 253);
 }
@@ -38,7 +44,4 @@ h1 {
   color: pink;
   font-size: 50px;
   font-weight: 35px;
-  display: flex;
-  justify-content: end;
-  top: 10px;
 }
