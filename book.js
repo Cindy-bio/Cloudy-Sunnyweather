@@ -27,6 +27,7 @@ let weatherData = [
 ];
 
 let city = prompt("Enter a city");
+if (city !== null) {
 let foundCity = weatherData.find(
   (data) => data.city.toLowerCase() === city.toLowerCase()
 );
@@ -44,6 +45,9 @@ if (foundCity) {
     `Sorry, we don't know the weather for this city, try searching for ${city} on Microsoft weather.`
   );
 }
+} else {
+  alert(`City input cancelled`);
+}
 
 function displayWeather(response) {
   let temperature = Math.round(response.data.temperature.current);
@@ -60,11 +64,18 @@ function searchCity(event) {
   let cityName = findInputElement.value;
   let h1Element = document.querySelector("h1");
   h1Element.innerHTML = cityName;
+
   fetchWeatherData(cityName);
 }
 
 let locationForm = document.querySelector("#location");
 locationForm.addEventListener("submit", searchCity);
+
+function fetchWeatherData(cityName) {
+  let apiKey = `59co603b2aafffbe78f0b45aa8t9fe03`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${apiKey}`;
+  axios.get(apiUrl).then(displayWeather);
+}
 
 function updateDateTime() {
   let now = new Date();
@@ -88,10 +99,6 @@ function updateDateTime() {
 }
 updateDateTime();
 
-function fetchWeatherData(cityName) {
-  let apiKey = `59co603b2aafffbe78f0b45aa8t9fe03`;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${apiKey}`;
-  axios.get(apiUrl).then(displayWeather);
-}
+
 
 
