@@ -95,7 +95,7 @@ function updateDateTime() {
     minutes = "0" + minutes;
   }
   let dateCastingElement = document.querySelector("#dateCasting");
-  dateCastingElement.innerHTML = `${day} ${hour}:${minutes}`;
+  dateCastingElement.innerHTML = `${day} ${hour}:${minutes},`;
 }
 updateDateTime();
 
