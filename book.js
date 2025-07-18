@@ -28,25 +28,25 @@ let weatherData = [
 
 let city = prompt("Enter a city");
 if (city !== null) {
-let foundCity = weatherData.find(
+ let foundCity = weatherData.find(
   (data) => data.city.toLowerCase() === city.toLowerCase()
-);
-if (foundCity) {
-  let temp = Math.round(foundCity.temp);
-  let humidity = foundCity.humidity;
-  let celsiusTemp = Math.round(temp);
-  let fahrenheitTemp = Math.round((temp * 9) / 5 + 32);
+ );
+ if (foundCity) {
+   let temp = Math.round(foundCity.temp);
+   let humidity = foundCity.humidity;
+   let celsiusTemp = Math.round(temp);
+   let fahrenheitTemp = Math.round((temp * 9) / 5 + 32);
 
-  alert(
-    `It is currently ${celsiusTemp}℃ (${fahrenheitTemp}) in ${city} with a humidity of ${humidity}%.`
-  );
+   alert(
+     `It is currently ${celsiusTemp}℃ (${fahrenheitTemp}) in ${city} with a humidity of ${humidity}%.`
+   );
+  } else {
+    alert(
+     `Sorry, we don't know the weather for this city, try searching for ${city} on Microsoft weather.`
+    );
+  }
 } else {
-  alert(
-    `Sorry, we don't know the weather for this city, try searching for ${city} on Microsoft weather.`
-  );
-}
-} else {
-  alert(`City input cancelled`);
+  alert(`City input cancelled.`);
 }
 
 function displayWeather(response) {
