@@ -17,7 +17,7 @@ function displayWeather(response) {
 
   dateCastingElement.innerHTML = updateDateTime(date);
   tellWeatherElement.innerHTML = response.data.condition.description;
-  joyElement.innerHTML = `<img src="${response.data.condition.icon_url}"`;
+  joyElement.innerHTML = `<img src="${response.data.condition.icon_url}"/>`;
   digitsElement.innerHTML = Math.round(digits);
   humidityElement.innerHTML = `${response.data.temperature.humidity}`;
   windElement.innerHTML = `${response.data.wind.speed}`;
