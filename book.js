@@ -49,9 +49,9 @@ function searchCity(event) {
   let cityName = findInputElement.value;
   let h1Element = document.querySelector("h1");
   h1Element.innerHTML = cityName;
-
+  
     fetchWeatherData(cityName);
-  }
+}
 
   let locationForm = document.querySelector("#location");
   locationForm.addEventListener("submit", searchCity);
@@ -61,7 +61,6 @@ function fetchWeatherData(cityName) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${apiKey}`;    
   axios.get(apiUrl).then(displayWeather);
 }
-
 
 
 
