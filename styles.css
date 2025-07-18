@@ -5,26 +5,27 @@ body {
   position: relative;
   padding: 30px;
   margin: 45px auto;
-  max-width: 30%;
+  max-width: 50%;
   border-radius: 15px;
   background-color: rgb(87, 135, 142);
   font-family: "Exo", sans-serif;
 }
 .hot{
-  display:flex;
+  display:block;
   justify-content: center;
-  margin: 15px;
+  padding: 5px;
 }
 #location{
-  border-radius: 100px;
-  display: flex;
+  display: flex; 
   justify-content: center;
+  margin: 5px;
+  border-radius: 20px;
 }
-#find-input{
+.find{
+  padding: 10px;
   border-radius: 20px;
 }
 .look {
-  padding: 15px;
   border-radius: 20px;
   color: rgb(255, 68, 0);
   background-color: purple;
@@ -36,11 +37,18 @@ body {
 .fluffy-weather{
   display: flex;
   justify-content: space-between;
+  margin: 10px;
+  padding: 2px;
 }
 h1 {
   color: rgb(102, 28, 171);
-  font-size: 65px;
-  margin: 10px;
+  font-size: 60px;
+  margin: 20px;
+}
+p{
+  font-size:20px;
+  line-height: 20px;
+  margin: 20px;
 }
 .value {
   color: rgb(255, 0, 187);
@@ -53,8 +61,9 @@ h1 {
   margin: 10px;
 }
 .sunnyShow{
-  font-size: 44px;
-  margin-top: 68px;
+  width: 100px;
+  height: 100px;
+  margin-top: 50px;
 }
 .sunnyDigits{
   color: rgb(102, 28, 171);
@@ -72,10 +81,14 @@ h1 {
   font-size: 12px;
 }
 a{
-  color: rgb(255, 0, 187);
+  color: rgb(255, 0, 187);;
   text-decoration: none;
 }
 a:visited{
-  color: rgb(245, 184, 229);  
-  transition-duration: 1min;
+  color: rgb(245, 184, 229);
+  text-decoration: underline;
 }
+a:hover{
+  color: rgb(130, 0, 96);
+}
+
