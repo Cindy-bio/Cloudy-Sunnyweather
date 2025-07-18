@@ -84,11 +84,8 @@ a{
   color: rgb(255, 0, 187);;
   text-decoration: none;
 }
-a:visited{
-  color: rgb(245, 184, 229);
-  text-decoration: underline;
-}
 a:hover{
   color: rgb(130, 0, 96);
+  text-decoration: underline;
 }
 
