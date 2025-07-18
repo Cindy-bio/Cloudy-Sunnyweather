@@ -44,6 +44,16 @@ if (foundCity) {
     `Sorry, we don't know the weather for this city, try searching for ${city} on Microsoft weather.`
   );
 }
+
+function displayWeather(response) {
+  let temperature = Math.round(response.data.temperature.current);
+  let cityName = response.data.city;
+  let h1Element = document.querySelector("h1");
+  h1Element.innerHTML = `${cityName}`;
+  let sunnyElement = document.querySelectorAll("#sunny");
+  sunnyElement.innerHTML = `${temperature}℃`;
+}
+
 function searchCity(event) {
   event.preventDefault();
   let findInputElement = document.querySelector("#find-input");
@@ -84,11 +94,4 @@ function fetchWeatherData(cityName) {
   axios.get(apiUrl).then(displayWeather);
 }
 
-function displayWeather(response) {
-  let temperature = Math.round(response.data.temperature.current);
-  let cityName = response.data.city;
-  let h1Element = document.querySelector("h1");
-  h1Element.innerHTML = `${cityName}`;
-  let sunnyElement = document.querySelectorAll("#sunny");
-  sunnyElement.innerHTML = `${temperature}℃`;
-}
+
