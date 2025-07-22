@@ -21,6 +21,8 @@ function displayWeather(response) {
   digitsElement.innerHTML = Math.round(digits);
   humidityElement.innerHTML = `${response.data.temperature.humidity}`;
   windElement.innerHTML = `${response.data.wind.speed}`;
+
+  displayForecast(response.data.city);
 }
 
 function updateDateTime(date) {
@@ -43,6 +45,12 @@ function updateDateTime(date) {
   return `${day} ${hour}:${minutes}`;
 }
 
+function fetchWeatherData(cityName) {
+  let apiKey = "59co603b2aafffbe78f0b45aa8t9fe03";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${apiKey}`;
+  axios.get(apiUrl).then(displayWeather);
+}
+
 function searchCity(event) {
   event.preventDefault();
   let findInputElement = document.querySelector("#find-input");
@@ -53,14 +61,43 @@ function searchCity(event) {
     fetchWeatherData(cityName);
 }
 
+function fetchForecast(cityName) {
+  let apiKey = `59co603b2aafffbe78f0b45aa8t9fe03`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${cityName}&key=${apiKey}`;
+  axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response);
+
+  days = ['Tue', 'Wed', 'Thurs', 'Fri', 'Sat'];
+  let fluffyForecastHTML = "";
+
+  days.forEach(function (day) {
+    fluffyForecastHTML = 
+      fluffyForecastHTML +
+    `
+      <div class="fluffy-forecast-day">
+        <div class="fluffy-forecast-date">${day}</div>
+        <div class="fluffy-forecast-icon"> ⛈️</div> 
+        <div class="fluffy-forecast-temperatures">
+          <div class="fluffy-forecast-temperature"> <strong>2° </strong></div>
+          <div class="fluffy-forecast-temperature">10°</div>
+        </div>
+     </div>        
+    `;
+   }
+  );
+
+  let fluffyForecast = document.querySelector("#fluffyForecast");
+  fluffyForecast.innerHTML = fluffyForecastHTML;
+}
+
   let locationForm = document.querySelector("#location");
   locationForm.addEventListener("submit", searchCity);
 
-function fetchWeatherData(cityName) {
-  let apiKey = "59co603b2aafffbe78f0b45aa8t9fe03";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${apiKey}`;    
-  axios.get(apiUrl).then(displayWeather);
-}
+fetchWeatherData("Johannesburg");
+
 
 
 
