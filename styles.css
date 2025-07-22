@@ -79,7 +79,7 @@ p{
 }
 .fluffy-weather-forecast{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .fluffy-forecast-date{
   text-align: center;
