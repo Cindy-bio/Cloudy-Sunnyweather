@@ -46,6 +46,7 @@ h1 {
   margin: 20px;
 }
 p{
+  color: rgb(28, 2, 52);
   font-size:20px;
   line-height: 20px;
   margin: 20px;
@@ -75,6 +76,32 @@ p{
 .sunnyUnit{
   margin-top: 35px;
   font-size: 44px;
+}
+.fluffy-weather-forecast{
+  display: flex;
+  justify-content: space-around;
+}
+.fluffy-forecast-date{
+  text-align: center;
+  color: rgb(23, 0, 44);
+  font-family: "Sora", sans-serif;
+  font-size: large;
+
+}
+.fluffy-forecast-icon{
+  text-align: center;
+  font-size: large;
+}
+.fluffy-forecast-temperatures{
+  text-align: center;
+  color: rgb(102, 28, 171);
+  display: flex;
+  justify-content: center;
+  font-family: "Sora", sans-serif;
+  font-size: large;
+}
+.fluffy-forecast-temperature{
+  padding: 5px;
 }
 .work-profile{
   text-align: center;
