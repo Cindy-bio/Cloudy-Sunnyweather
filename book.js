@@ -9,23 +9,18 @@ function displayWeather(response) {
   let digits = response.data.temperature.current;
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
-  
-  
-  console.log(response.data);
-  
-  h1Element.innerHTML = `${cityName}`;
 
+  h1Element.innerHTML = `${cityName}`;
   dateCastingElement.innerHTML = updateDateTime(date);
   tellWeatherElement.innerHTML = response.data.condition.description;
   joyElement.innerHTML = `<img src="${response.data.condition.icon_url}"/>`;
   digitsElement.innerHTML = Math.round(digits);
   humidityElement.innerHTML = `${response.data.temperature.humidity}`;
   windElement.innerHTML = `${response.data.wind.speed}`;
-
-  displayForecast(response.data.city);
+  fetchForecast(response.data.city); 
 }
 
-function updateDateTime(date) {
+function updateDateTime(_date) {
   let now = new Date();
   let days = [
     "Sunday",
@@ -61,42 +56,53 @@ function searchCity(event) {
     fetchWeatherData(cityName);
 }
 
+function formatDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
 function fetchForecast(cityName) {
-  let apiKey = `59co603b2aafffbe78f0b45aa8t9fe03`;
+  let apiKey = "59co603b2aafffbe78f0b45aa8t9fe03";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${cityName}&key=${apiKey}`;
-  axios(apiUrl).then(displayForecast);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayForecast(response) {
-  console.log(response);
+  console.log(response.data);
 
-  days = ['Tue', 'Wed', 'Thurs', 'Fri', 'Sat'];
-  let fluffyForecastHTML = "";
+  let fluffyForecastHtml = "";
 
-  days.forEach(function (day) {
-    fluffyForecastHTML = 
-      fluffyForecastHTML +
-    `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+     fluffyForecastHtml = 
+      fluffyForecastHtml +
+      `
       <div class="fluffy-forecast-day">
-        <div class="fluffy-forecast-date">${day}</div>
-        <div class="fluffy-forecast-icon"> ⛈️</div> 
+        <div class="fluffy-forecast-date">${formatDate(day.time)}</div>
+        <img src="${day.condition.icon_url}"/>
         <div class="fluffy-forecast-temperatures">
-          <div class="fluffy-forecast-temperature"> <strong>2° </strong></div>
-          <div class="fluffy-forecast-temperature">10°</div>
+          <div class="fluffy-forecast-temperature">
+           <strong>${Math.round(day.temperature.maximum)}° </strong></div>
+          <div class="fluffy-forecast-temperature"> ${Math.round(day.temperature.minimum)}° </div>
         </div>
-     </div>        
+      </div>        
     `;
-   }
-  );
+    }
+  });
 
   let fluffyForecast = document.querySelector("#fluffyForecast");
-  fluffyForecast.innerHTML = fluffyForecastHTML;
+  fluffyForecast.innerHTML = fluffyForecastHtml;
+
+  
 }
 
-  let locationForm = document.querySelector("#location");
-  locationForm.addEventListener("submit", searchCity);
+let locationForm = document.querySelector("#location");
+locationForm.addEventListener("submit", searchCity);
 
 fetchWeatherData("Johannesburg");
+
 
 
 
