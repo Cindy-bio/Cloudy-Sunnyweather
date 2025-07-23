@@ -79,7 +79,9 @@ p{
 }
 .fluffy-weather-forecast{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin: 10px;
+  padding: 2px;
 }
 .fluffy-forecast-date{
   text-align: center;
@@ -89,19 +91,21 @@ p{
 
 }
 .fluffy-forecast-icon{
-  text-align: center;
-  font-size: large;
+  display: contents;
+  width: 15px;
+  height: 90px;
 }
 .fluffy-forecast-temperatures{
   text-align: center;
   color: rgb(102, 28, 171);
   display: flex;
+  padding: 2px;
   justify-content: center;
   font-family: "Sora", sans-serif;
   font-size: large;
 }
 .fluffy-forecast-temperature{
-  padding: 5px;
+  padding: 6px;
 }
 .work-profile{
   text-align: center;
